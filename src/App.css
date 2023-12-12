@@ -1,0 +1,208 @@
+
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 265px;
+  background-color: #ffffff;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+  margin: 20px 20px 10px 10px;
+}
+
+.sidebar a.active {
+  background-color: #203562;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white !important;
+}
+
+div.content {
+  margin-left: 265px;
+  padding: 15px 16px;
+  height: 1000px;
+  background-color: #E3E8F8;
+}
+
+.profileImage {
+  width: 100%;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.personName {
+  font-size: 14px;
+  padding-top: 30px;
+}
+
+.personEmail {
+  font-size: 10px;
+}
+
+.iconHead {
+  border-radius: 5px;
+  color: #203562;
+}
+
+.myNote-Head {
+  padding-top: 20px;
+}
+
+.cardBorder {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.cardIcons {
+  padding-left: 40%;
+  font-size: 15px;
+}
+
+.smallFont {
+  font-size: 10px;
+  font-weight: bold;
+  padding-bottom: 0px;
+  margin-bottom: 3px;
+}
+
+.content {
+  color: #203562;
+}
+
+.welcomeHeading {
+  font-weight: 600;
+}
+
+.taskField {
+  background-color: white;
+  border-radius: 10px;
+}
+
+.taskImage {
+  width: 2%;
+  margin-right: 15px;
+}
+
+.dayDetails {
+  font-size: 12px;
+}
+
+.taskRow{
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+
+}
+
+.taskField{
+  padding: 10px 30px;
+  max-width: 75%;
+}
+
+.colWidthSm{
+  max-width: 2.3%;
+}
+
+.colWidthSm > i{
+ padding-top: 15px;
+}
+
+.addTaskField{
+  background-color: #ffffff;
+
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.iconClass{
+  cursor: pointer;
+}
+
+.noteEditor{
+  background-color: white;
+  border-radius: 10px;
+}
+
+.ql-toolbar.ql-snow ,.ql-container.ql-snow{
+  border: none !important;
+}
+
+.ql-editor{
+  border: 1px solid gray !important;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .sidebar a {
+    float: left;
+  }
+
+  div.content {
+    margin-left: 0;
+  }
+  .colMobLogo{
+    width: 30% !important;
+  }
+  .colMobContent{
+    width: 70% !important;
+  }
+
+
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+
+  .colMobLogo{
+    width: 30% !important;
+  }
+  .colMobContent{
+    width: 70% !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+
+  .colMobLogo{
+    width: 30% !important;
+  }
+  .colMobContent{
+    width: 70% !important;
+  }
+
+  .cardWidth{
+    width: 55% !important;
+  }
+}
