@@ -9,6 +9,8 @@ import Archive from "./components/pages/archive"
 import Bin from "./components/pages/bin"
 import { TaskProvider } from './Contexts/task.context';
 import { NoteProvider } from './Contexts/note.context';
+import { Provider } from "react-redux";
+import store from "../src/Redux/store";
 
 import {
   BrowserRouter as Router,
@@ -19,6 +21,7 @@ import {
 function App() {
   return (
     <Router>
+      <Provider store={store}>
       <TaskProvider>
       <NoteProvider>
       <div className="App">
@@ -34,6 +37,7 @@ function App() {
       </div>
       </NoteProvider>
       </TaskProvider>
+      </Provider>
     </Router>
   );
 }

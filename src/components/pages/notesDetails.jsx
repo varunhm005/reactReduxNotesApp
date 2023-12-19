@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
-import { useNoteContext } from '../../Contexts/note.context';
+import {  useSelector } from "react-redux";
+import { deleteNoteDetails } from "../../Redux/Reducers/note.reducer";
+import { useDispatch } from "react-redux";
+
+// import { updateCompletedValue, updateFavoriteValue } from "../../Redux/Reducers/task.reducer";
 import Model from './model'
 export default function NoteDetails() {
-
-    const { notes, deleteNoteContext } = useNoteContext();
+  const { notes = [] } = useSelector((state) => state.notesReducer);
+    const dispatch = useDispatch();
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalData, setModalData] = useState(null);
@@ -20,7 +24,7 @@ export default function NoteDetails() {
 
     const deleteNote = (id) => {
         console.log("id",id)
-        deleteNoteContext(id)
+        dispatch(deleteNoteDetails({id}));
     };
 
     function getTimeAgo(timestamp) {

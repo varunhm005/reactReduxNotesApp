@@ -9,22 +9,40 @@ export const taskSlice = createSlice({
   },
   reducers: {
     addTask: (state, action) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library, 
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
       if (action.payload) {
         state.tasks.push(action.payload);
       }
     },
-    // deleteTodo: (state, action) => {
-    //   // state.value -= 1
-    //   console.log(action);
-    // },
+    updateCompletedValue: (state, action) => {
+      const { id } = action.payload;
+      let updateStatus = null;
+      const itemToUpdate = state.tasks.find(item => item.id === id);
+      if (itemToUpdate) {
+        if(itemToUpdate.completed === true){
+          updateStatus = false
+        }else{
+          updateStatus = true
+        }
+        itemToUpdate.completed = updateStatus;
+      }
+    },
+    updateFavoriteValue: (state, action) => {
+      const { id } = action.payload;
+      let updateStatus = null;
+      const itemToUpdate = state.tasks.find(item => item.id === id);
+      if (itemToUpdate) {
+        if(itemToUpdate.favorite === true){
+          updateStatus = false
+        }else{
+          updateStatus = true
+        }
+        itemToUpdate.favorite = updateStatus;
+      }
+    }
   },
 });
 
 
 // Action creators are generated for each case reducer function
-export const { addTask } = taskSlice.actions;
+export const { addTask, updateCompletedValue, updateFavoriteValue } = taskSlice.actions;
 export default taskSlice.reducer;

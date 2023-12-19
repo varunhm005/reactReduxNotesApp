@@ -1,22 +1,22 @@
 import React, { useRef, useState }  from 'react'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { useNoteContext } from '../../Contexts/note.context';
 import NoteDetails from './notesDetails'
+import { useDispatch } from "react-redux";
+import { addNotes } from "../../Redux/Reducers/note.reducer";
 export default function Notes() {
 
-  const { addNote } = useNoteContext();
+  const dispatcher = useDispatch();
   const noteField = useRef(null);
-  const [quillValue, setQuillValue] = useState('');
+  let [quillValue, setQuillValue] = useState('');
 
 
   const addNewNotes = () => {
     if (noteField.current.value !== "") {
       const noteData = noteField.current.value;
-      console.log({ id: Date.now(), data: noteData, createdDate: Date.now() });
-
-      addNote({ id: Date.now(), data: noteData, createdDate: Date.now() });
+      dispatcher(addNotes({ id: Date.now(), data: noteData, createdDate: Date.now() }));
       setQuillValue('');
+      noteField.current.getEditor().setText('');
     }
   };
   

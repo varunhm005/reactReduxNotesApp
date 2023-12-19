@@ -3,18 +3,20 @@ import { Modal, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-
-import { useNoteContext } from '../../Contexts/note.context';
+import { updateNote } from "../../Redux/Reducers/note.reducer";
+import { useDispatch } from "react-redux";
 
 
 const Model = ({ isOpen, handleClose, data }) => {
-    const { updateNoteContext} = useNoteContext();
+    const dispatch = useDispatch();
+
     const modelNoteField = useRef(null);
     const updateNotes = (id) => {
         if (modelNoteField.current.value !== "") {
             const updateNoteData = modelNoteField.current.value;
             console.log(id,updateNoteData);
-            updateNoteContext(id, updateNoteData)
+            dispatch(updateNote({id, value:updateNoteData}));
+
 
             handleClose();
         }
